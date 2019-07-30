@@ -60,20 +60,27 @@
              constructor(props){
                 super(props);
                 this.state={
-                    editor:true
+                    editor:true,
+                    cards:[]
                 }
             }
             render(){
                 if (this.state.editor){
                     return(
                         <div>
-                            <Editor switchMode={this.switchMode} /> 
+                            <Editor 
+                                switchMode={this.switchMode}
+                                cards={this.state.cards} 
+                            /> 
                         </div>
                     )
                 }else{
                     return(
                         <div>
-                            <Viewer switchMode={this.switchMode} />
+                            <Viewer 
+                                switchMode={this.switchMode} 
+                                cards={this.state.cards} 
+                            />
                         </div>
                     )
                 }
