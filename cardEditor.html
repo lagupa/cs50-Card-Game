@@ -56,25 +56,31 @@
              constructor(props){
                 super(props);
                 this.state={
-                    mode:"editor"
+                    editor:true
                 }
             }
             render(){
-                if (this.state.mode=="editor"){
+                if (this.state.editor){
                     return(
                         <div>
-                            <Editor />
-                            <button>Go to Viewer</button>
+                            <Editor /> <hr/>
+                            <button onClick={this.switchMode}>Go to Viewer</button>
                         </div>
                     )
                 }else{
                     return(
                         <div>
-                            <Viewer />
-                            <button>Go to Editor</button>
+                            <Viewer/> <hr/>
+                            <button onClick={this.switchMode}>Go to Editor</button>
                         </div>
                     )
                 }
+            }
+
+            switchMode = ()=>{
+                this.setState(state=>({
+                    editor:!state.editor
+                }));
             }
         }
 
